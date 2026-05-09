@@ -7,12 +7,20 @@ metadata:
 spec:
   ingressClassName: nginx
   rules:
-   - http:
+  - http:
       paths:
       - pathType: Prefix
-        path: "/"
+        path: /
         backend:
           service:
             name: main-server-service
-            port: 
+            port:
+              number: 80
+
+      - pathType: Prefix
+        path: /product
+        backend:
+          service:
+            name: product-service
+            port:
               number: 80
